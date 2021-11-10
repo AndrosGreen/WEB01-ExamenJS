@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Servicios Streaming</title>
+</head>
+<body>
+    <script src="./scripts/script.js"></script>
+    <div class="container">
+        <h2 class="bottom-3">Elije tu plan</h2>
+        <form class="row g-3 bottom-1">
+            <div class="col-md-4">
+                <label for="inputState" class="form-label">Plataforma</label>
+                <select id="inputState" class="form-select" onchange="handleChangePlataforma(event)">
+                    <option value="Netflix">Netflix</option>
+                    <option value="HBO Max">HBO Max</option>
+                    <option value="Disney+">Disney +</option>
+                    <option value="Prime Video">Prime Video</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="inputState" class="form-label">Tipo Plan</label>
+                <select id="inputState" class="form-select" onchange="handleChangePlan(event)">
+                    <option value="1">1 mes</option>
+                    <option value="3">3 meses</option>
+                    <option value="6">6 meses</option>
+                    <option value="12">1 año</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="inputState" class="form-label">Codigo Promocional</label>
+                <select id="inputState" class="form-select" onchange="handleChangeDescuento(event)">
+                    <option value="1.0">Ninguno</option>
+                    <option value="0.90">Navidad 10%</option>
+                    <option value="0.95">Cliente Frecuente 5%</option>
+                </select>
+            </div>
+        </form>
+        <h2>Total: $<label id="txtTotal"></label></h2>
+        <button class="btn btn-primary" onclick="openCard()">Contratar</button>
+        <div class="confirmar-pedido" id="confirmar-pedido" style="display: none">
+            <h4>Confirmar pedido</h4>
+            <div class="card" style="width: 18rem;">
+                <img src="./img/netflix.png" class="card-img-top" alt="..." id="imgPlataforma">
+                <div class="card-body">
+                    <p class="card-text"><b>Plataforma:</b> <label id="cardPlataforma">Netflix</label> </p>
+                    <p class="card-text"><b>Tipo plan:</b> <label id="cardPlan">1 mes</label></p>
+                    <p class="card-text"><b>Total $:</b> <label id="cardTotal">1 mes</label> </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                Ingrese su nombre para confirmar el pedido:
+                <input type="text" class="form-control" id="txtNombre">
+                <p style="color: red;" id="errorNombre"></p>
+            </div>
+            <button class="btn btn-primary top-1" onclick="registrarPedido()">Contratar y Pagar</button>
+        </div>
+    </div>
+</body>
+</html>
